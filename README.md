@@ -11,6 +11,7 @@ Done.
 
 Screenshot:
 <a href="https://i.imgur.com/FfCtM34.png"> Here </a>
+<a href="https://gfycat.com/YearlyKeyAntarcticgiantpetrel"> gif </a>
 
 Konami code for unblocking a new fighter:
 code: up, up, down, down, left, right, left, right, b, ]
