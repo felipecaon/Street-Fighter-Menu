@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto');
+
+:root {
+    --background-image: url("") no-repeat;
+    --background-color: linear-gradient(to bottom,rgba(50, 50, 50, 0.6), rgba(67, 2, 3, 1));
+}
+
+* {
+    box-sizing: border-box
+}
+
+body, html{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.background{
+    /* background: linear-gradient(to bottom,rgba(0, 0, 0, 0.7), rgba(67, 2, 3, 0.95)), url('images/flags/jp.png');  */
+    background: var(--background-color), var(--background-image);
+    background-repeat: no-repeat;
+    background-size: 150%;
+    background-position: 50% 7%;
+    position: relative;
+}
+
+.novoPersonagem{
+    position: fixed;
+    padding-right: 38px;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+}
+
+.novoPersonagem > p{
+    font-family: 'Roboto',serif;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.fadeout{
+    animation: fadeout 1s forwards ease-in-out;
+}
+
+header{
+    height: auto;
+}
+
+#logo{
+    padding-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+#logo > img{
+    width: 20%;
+    height: 20%;
+    animation: logoInicio 1s forwards linear, piscarElemento 1s step-start;
+    animation-delay: 0s, 1.2s;
+}
+
+.blink{
+    animation: piscarElemento 1s step-start;
+}
+
+.container {
+    margin: auto;
+    width: 50%;
+    height: auto;
+    -webkit-animation-name: fadein;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: 1s;
+    opacity: 0;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.personagem{
+    margin-top: 30px;
+    display: flex;
+    width: 100%;
+}
+
+#colunaPersonagem{
+    height: 500px;
+    overflow: hidden;
+    width: 60%;
+}
+
+#colunaPersonagem > img{
+    max-width:95%;
+    max-height:95%;
+    animation: entradaPersonagemAposMudanca 1s forwards linear;
+}
+
+.colunaInformacoes{
+    width: 40%;
+}
+
+.informacao{
+    display: inline-block;
+}
+
+.informacao > p{
+    position: absolute;
+    display: inline-block;
+    font-family: 'Roboto', serif;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+    margin-left: 4px;
+    margin-top: -25px;
+
+}
+.colunaInformacoesWrapper{
+    margin: 20% 0 0 0;
+}
+
+.colunaInformacoesWrapper > ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.colunaInformacoesWrapper li{
+    margin: 0;
+    padding: 0;
+}
+.colunaInformacoesWrapper > h1{
+    font-family: 'Permanent Marker', serif;
+    margin: 0;
+    color: white;
+    text-shadow: 4px 4px black;
+    font-size: 85px;
+}
+
+.colunaInformacoesWrapper label{
+    background-color: #ffde00;
+    margin-top: 12px;
+    padding: 8px 11px;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 20px;
+    font-family: 'Roboto', serif;
+    font-weight: 600;
+}
+
+.selecaoPersonagens{
+    width: 63%;
+    margin: auto;
+}
+
+.listaDePersonagens{
+    margin-top: 30px;
+    padding-bottom: 20px;
+}
+
+
+.primeiraLinha, .segundaLinha{
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+
+.borda{
+    border: 4px solid #BBBABA; 
+}
+
+.character{
+    width: 119px;
+    height: 132px;
+    display: inline-block;
+    filter: grayscale();
+    padding: 0;
+    cursor: pointer;
+}
+
+
+.active{
+    filter:none;
+    border: 4px solid #ffde00;
+}
+
+.caixa{
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(255, 0, 0, 0.4);
+    width: 111px;
+    margin-bottom: 4px;
+}
+
+.caixa > label{
+    color: white;
+    font-family: 'Roboto', serif;
+    font-weight: bold;
+    font-size: 16px;
+    display: block;
+    text-align: center;
+}
+
+.secreto{
+    background-color: black;
+}
+
+.character:hover:not(.secreto){
+    border: 4px solid #ffde00;
+    filter: none;    
+}
+
+.character > img{
+    width: 100%;
+}
+
+@keyframes logoInicio {
+    from { transform: scale(0) rotate(0deg);   }
+    to   { transform: scale(1) rotate(360deg); }
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+@keyframes piscarElemento {
+    20%{
+        filter: brightness(200%);
+    }
+    
+    40%{
+        filter: brightness(100%);
+    }
+    60%{
+        filter: brightness(200%);
+    }
+    
+    80%{
+        filter: brightness(100%);
+    }
+    
+    90%{
+        filter: brightness(200%);
+    }
+    95%{
+        filter: brightness(100%);
+    }
+    
+    100%{
+        filter: brightness(200%);
+    }
+}
+
+@keyframes entradaPersonagemAposMudanca {
+    0% {
+        margin-left: 60px;
+        filter: drop-shadow(7px -1px 0px white);   
+    }
+    20%{
+        filter: drop-shadow(12px -1px 0px white); 
+    }
+    
+    50% {
+        filter: drop-shadow(20px -1px 0px black);
+    }
+    100% {
+        margin-left: 100px;
+        filter: drop-shadow(7px -1px 0px black);
+    }
+}
